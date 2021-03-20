@@ -1,5 +1,18 @@
-<h1>{{ question.question_text }}</h1>
+<head>
+  <style>
+    div {
+      padding: 16px;
+      background-color: #C5E7F0;
 
+       }
+
+  </style>
+</head>
+  <div>
+      <h1>{{ question.question_text }}</h1>
+  </div>
+
+<body bgcolor="#F0CCC5">
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
@@ -8,5 +21,6 @@
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
-<input type="submit" value="vote">
+<input type="submit" value="vote" >
 </form>
+</body>
